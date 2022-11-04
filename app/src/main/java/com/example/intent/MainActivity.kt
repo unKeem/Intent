@@ -15,29 +15,29 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /**1단계 로그인 버튼을 누르면 LoginActivity로 intent 요청
-        binding.btnLogin.setOnClickListener {
+        //*1단계 로그인 버튼을 누르면 LoginActivity로 intent 요청
+        binding.mainBtnLogin.setOnClickListener {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         }
         // */
-        /*2 단계 mainactivity에서 버튼을 누르면 데이터 전송받는다 로긴액티비티 인텐트 요청
-        binding.btnLogin.setOnClickListener {
+        //*2 단계 mainactivity에서 버튼을 누르면 데이터 전송받는다 로긴액티비티 인텐트 요청
+        binding.mainBtnLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             //두값이 널이 아닐때만 전송되도록 방어
-            if(!binding.edtId.text.toString().equals("")&& !binding.edtPw.text.toString().equals("")) {
-                intent.putExtra("id", binding.edtId.text.toString())
-                intent.putExtra("pw", binding.edtPw.text.toString())
+            if(!binding.mainEdtId.text.toString().equals("")&& !binding.mainEdtPw.text.toString().equals("")) {
+                intent.putExtra("id", binding.mainEdtId.text.toString())
+                intent.putExtra("pw", binding.mainEdtPw.text.toString())
                 startActivity(intent)
             }else{
                 Toast.makeText(this, "MAIN ID PW 오류",Toast.LENGTH_SHORT).show()
             }
         }
         // */
-        /*3단계 버튼 누르면 데이터 전송(객체로)loginActivity intent 요청
-        binding.btnLogin.setOnClickListener {
+        //*3단계 버튼 누르면 데이터 전송(객체로)loginActivity intent 요청
+        binding.mainBtnLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
-           val person:Person? = Person(binding.edtId.text.toString(),binding.edtPw.text.toString())
+           val person:Person? = Person(binding.mainEdtId.text.toString(),binding.mainEdtPw.text.toString())
             //두값이 널이 아닐때만 전송되도록 방어??
             if(person!=null) {
                 intent.putExtra("person", person)
@@ -47,10 +47,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         // */
-        /*4단계 버튼 누르면 객체 전송(속도빠름)
-       binding.btnLogin.setOnClickListener {
+        //*4단계 버튼 누르면 객체 전송(속도빠름)
+       binding.mainBtnLogin.setOnClickListener {
            val intent = Intent(this, LoginActivity::class.java)
-          val personParcel:PersonParcel? = PersonParcel(binding.edtId.text.toString(),binding.edtPw.text.toString())
+          val personParcel:PersonParcel? = PersonParcel(binding.mainEdtId.text.toString(),binding.mainEdtPw.text.toString())
            //두값이 널이 아닐때만 전송되도록 방어??
            if(personParcel!=null) {
                intent.putExtra("personParcel", personParcel)
@@ -60,14 +60,14 @@ class MainActivity : AppCompatActivity() {
            }
        }
        // */
-        /*5단계 버튼 누르면(serializable) ArrayList전달 LoginActivity 인텐트 요청
-        binding.btnLogin.setOnClickListener {
+       //*5단계 버튼 누르면(serializable) ArrayList전달 LoginActivity 인텐트 요청
+        binding.mainBtnLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             val personParcelList = arrayListOf<PersonParcel>()
             personParcelList.add(
                 PersonParcel(
-                    binding.edtId.text.toString(),
-                    binding.edtPw.text.toString()
+                    binding.mainEdtId.text.toString(),
+                    binding.mainEdtPw.text.toString()
                 )
             )
             personParcelList.add(PersonParcel("aaaa", "1111"))
@@ -84,15 +84,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
         // */
-        /*6단계 mainactivity에서 버튼을 누르면 데이터 전송하고 loginactivity로부터 결과값 리턴 요청 (오버라이딩 onactivityResult)
-        binding.btnLogin.setOnClickListener {
+        //*6단계 mainactivity에서 버튼을 누르면 데이터 전송하고 loginactivity로부터 결과값 리턴 요청 (오버라이딩 onactivityResult)
+        binding.mainBtnLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             //두값이 널이 아닐때만 전송되도록 방어
-            if (!binding.edtId.text.toString().equals("") && !binding.edtPw.text.toString()
+            if (!binding.mainEdtId.text.toString().equals("") && !binding.mainEdtPw.text.toString()
                     .equals("")
             ) {
-                intent.putExtra("id", binding.edtId.text.toString())
-                intent.putExtra("pw", binding.edtPw.text.toString())
+                intent.putExtra("id", binding.mainEdtId.text.toString())
+                intent.putExtra("pw", binding.mainEdtPw.text.toString())
                 //100번에 해당하는 activity를 확인하는 코드
                 startActivityForResult(intent, 100)
             } else {
@@ -100,15 +100,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
         // */
-        //*6단계 mainactivity에서 버튼을 누르면 데이터 전송하고 loginactivity로부터 결과값 리턴 요청 (오버라이딩 onactivityResult)
+        //*7단계 mainactivity에서 버튼을 누르면 데이터 전송하고 loginactivity로부터 결과값 리턴 요청 (오버라이딩 onactivityResult)
         binding.btnLogin2.setOnClickListener {
             val intent = Intent(this, MemberActivity::class.java)
             //두값이 널이 아닐때만 전송되도록 방어
-            if (!binding.edtId.text.toString().equals("") && !binding.edtPw.text.toString()
+            if (!binding.mainEdtId.text.toString().equals("") && !binding.mainEdtPw.text.toString()
                     .equals("")
             ) {
-                intent.putExtra("id", binding.edtId.text.toString())
-                intent.putExtra("pw", binding.edtPw.text.toString())
+                intent.putExtra("id", binding.mainEdtId.text.toString())
+                intent.putExtra("pw", binding.mainEdtPw.text.toString())
                 //100번에 해당하는 activity를 확인하는 코드
                 startActivityForResult(intent, 200)
             } else {
@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity() {
                 //loginactivity에서 여기로 보낸 인텐트를 인식
                 100 -> {
                     Log.d("intent","${intent?.getStringExtra("result")}")
-                    binding.btnRegister.text = intent?.getStringExtra("result")
+                    binding.mainBtnRegister.text = intent?.getStringExtra("result")
                 }
                 //memberActivity에서 여기로 보낸 인텐트를 인식
                 200 -> {
