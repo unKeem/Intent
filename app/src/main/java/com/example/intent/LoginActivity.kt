@@ -13,7 +13,7 @@ class LoginActivity : AppCompatActivity() {
         val binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //*2 단계 MainActivity에서 login버튼 클릭했을때 LoginActivity로 값을 넘기고 보여줌
+       /*2 단계 MainActivity에서 login버튼 클릭했을때 LoginActivity로 값을 넘기고 보여줌
         if (!intent.getStringExtra("id").equals("") && !intent.getStringExtra("pw").equals("")) {
             binding.loginTvId.text = intent.getStringExtra("id")
             binding.loginTvPw.text = intent.getStringExtra("pw")
@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
         // */
-        //*3단계 버튼 누르면 데이터 전송(객체로)loginActivity intent 요청
+       /*3단계 버튼 누르면 데이터 전송(객체로)loginActivity intent 요청
          if (intent.hasExtra("person")) {
             val person = intent.getSerializableExtra("person") as Person
              binding.loginTvId.text = person.id
@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
              finish()
          }
          // */
-        //*4단계 버튼 누르면 객체 전송(Parcelable)빠름
+        /*4단계 버튼 누르면 객체 전송(Parcelable)빠름
         if (intent.hasExtra("personParcel")) {
            val personParcel = intent.getParcelableExtra<PersonParcel>("personParcel")
             binding.loginTvId.text = personParcel?.id
@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
         // */
-        //*5단계  메인에서버튼 누르면(serializable) ArrayList전달 LoginActivity 인텐트 요청
+        /*5단계  메인에서버튼 누르면(serializable) ArrayList전달 LoginActivity 인텐트 요청
         if (intent.hasExtra("personParcelList")) {
             val personParcelList = intent.getParcelableArrayListExtra<PersonParcel>("personParcelList")
             binding.loginTvId.text = personParcelList?.get(0)?.id
@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
         // */
-        //*6단계 mainactivity에서 버튼을 누르면 데이터 전송하고 loginactivity로부터 결과값 리턴 요청 (오버라이딩 onactivityResult)
+       //*6단계 mainactivity에서 버튼을 누르면 데이터 전송하고 loginactivity로부터 결과값 리턴 요청 (오버라이딩 onactivityResult)
         if (!intent.getStringExtra("id").equals("") && !intent.getStringExtra("pw").equals("")) {
             binding.loginTvId.text = intent.getStringExtra("id")
             binding.loginTvPw.text = intent.getStringExtra("pw")
